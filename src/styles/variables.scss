@@ -1,0 +1,19 @@
+$border-width: 1px;
+$footer-height: 50px;
+
+:root{
+  --base-padding: 10px;
+  --nav-height: 80px;
+  --footer-height: 50px;
+}
+
+@media only screen and (min-width: 768px) {
+  :root{
+    --base-padding: 50px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  :root{
+    --base-padding: 100px;
+  }
+}

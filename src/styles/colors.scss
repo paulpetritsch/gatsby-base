@@ -1,0 +1,86 @@
+/****************
+    Colors
+ ****************/
+
+body {
+    --dark-color: #000000;
+    --light-color: #FFFFFF;
+    --primary-color: #123456;
+}
+
+body.dark{
+    --dark-color: #FFFFFF;
+    --light-color: #000000;
+    --primary-color: #6aacee;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        --dark-color: #FFFFFF;
+        --light-color: #000000;
+        --primary-color: #6aacee;
+    }
+    body.dark{
+        --dark-color: #000000;
+        --light-color: #FFFFFF;
+        --primary-color: #123456;
+    }
+}
+
+.color-dark {
+    color: var(--dark-color);
+}
+.color-light {
+    color: var(--light-color);
+}
+.color-primary {
+    color: var(--primary-color);
+}
+
+.bg-dark {
+    background-color: var(--dark-color);
+}
+.bg-light {
+    background-color: var(--light-color);
+}
+.bg-primary {
+    background-color: var(--primary-color);
+}
+
+.svg-fill-dark {
+    fill: var(--dark-color);
+}
+.svg-fill-light {
+    fill: var(--light-color);
+}
+.svg-fill-primary {
+    fill: var(--primary-color);
+}
+.svg-path-dark {
+    stroke: var(--dark-color);
+    fill: none;
+    stroke-width:$border-width;
+}
+.svg-path-light {
+    stroke: var(--light-color);
+    fill: none;
+    stroke-width:$border-width;
+}
+.svg-path-primary {
+    stroke: var(--primary-color);
+    fill: none;
+    stroke-width:$border-width;
+}
+.svg-path-round{
+    stroke-linecap:round;stroke-linejoin:round;
+}
+
+.border-dark {
+    border: $border-width solid var(--dark-color);
+}
+.border-light {
+    border: $border-width solid var(--light-color);
+}
+.border-orange {
+    border: $border-width solid var(--orange-color);
+}

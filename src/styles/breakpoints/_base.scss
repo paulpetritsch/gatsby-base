@@ -1,0 +1,114 @@
+/****************
+    Text Styles
+ ****************/
+
+$h1: 5rem;
+$h2: 4rem;
+$h3: 3rem;
+$h4: 2rem;
+$h5: .8rem;
+$h6: .5rem;
+$p: 1rem;
+$plarge: 1.5rem;
+$psmall: .8rem;
+
+//landing headline
+h1 {
+  font-size: $h1;
+  margin: 0;
+}
+
+h2 {
+  font-size: $h2;
+  margin: 0;
+}
+
+h3 {
+  font-size: $h3;
+  margin: 0;
+}
+
+h4 {
+  font-size: $h4;
+  margin: 0;
+}
+
+h5 {
+  font-size: $h5;
+  margin: 0;
+}
+
+h6 {
+  font-size: $h6;
+  margin: 0;
+}
+
+p {
+  font-size: $p;
+  margin: 0;
+  &.large {
+    font-size: $plarge;
+  }
+  &.small {
+    font-size: $psmall;
+  }
+}
+
+.small {
+  p {
+    font-size: $psmall;
+  }
+  font-size: $psmall;
+}
+
+.large {
+  p {
+    font-size: $plarge;
+  }
+  font-size: $plarge;
+}
+
+.underlined{
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2.5px;
+}
+
+.strong {
+  font-weight: 600;
+}
+
+a {
+  color: var(--dark-color);
+}
+
+.center-aligned {
+  text-align: center;
+}
+
+.right-aligned {
+  text-align: right;
+}
+
+.left-aligned {
+  text-align: left;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+/****************
+    Base Structure
+ ****************/
+
+.page{
+  .inner{
+    padding: var(--nav-height) 10px 0;
+  }
+  min-height: calc(100vh - var(--footer-height));
+}

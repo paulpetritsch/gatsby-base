@@ -1,0 +1,53 @@
+/****************
+    Base
+ ****************/
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+
+    width: 100vw;
+    overflow-x: hidden;
+
+    font-family: sans-serif;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+}
+
+::selection {
+    background-color: var(--primary-color);
+    color: var(--light-clor);
+}
+
+.mobile {
+
+}
+
+.desktop {
+    display: none !important;
+}
+
+@media only screen and (min-width: 768px) {
+    .mobile {
+        display: none !important;
+    }
+    .desktop {
+        display: flex !important;
+        &--block{
+            display: block !important;
+        }
+    }
+}

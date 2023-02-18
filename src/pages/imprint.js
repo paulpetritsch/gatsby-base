@@ -7,14 +7,9 @@ import Text from "../components/MyPortableText";
 
 export const query = graphql`
 {
-allSanityStartseite {
+allSanityImpressum {
 edges {
 node {
-    headline{
-    _type
-    en
-    de
-    }
     _rawText
     seo_title{
     _type
@@ -49,19 +44,14 @@ node {
 
 const IndexPage = ({data, location}) => {
 
-    const page = data.allSanityStartseite.edges[0].node;
+    const page = data.allSanityImpressum.edges[0].node;
     const settings = data.allSanitySettings.edges[0].node;
     const metadata = data.site.siteMetadata;
 
   return (
       <Layout location={location} settings={settings} metadata={metadata}>
-          <div className={"page"}>
-              <div className="inner">
-                  <SEO title={page.seo_title} description={page._rawSeo_description} image={page.seo_image}></SEO>
-                  <h1>{page.headline}</h1>
-                  <Text value={page._rawText}></Text>
-              </div>
-          </div>
+          <SEO title={page.seo_title} description={page._rawSeo_description} image={page.seo_image}></SEO>
+          <Text value={page._rawText}></Text>
       </Layout>
   )
 }

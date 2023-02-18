@@ -1,0 +1,13 @@
+/****************
+    Footer
+ ****************/
+
+.footer{
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  padding: 0 var(--base-padding);
+  height: var(--footer-height);
+
+  display: flex;
+  align-items: center;
+}
