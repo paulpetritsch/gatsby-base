@@ -1,5 +1,5 @@
 import React, {useRef, useState} from "react";
-import Icon from "./Icon";
+import Icon from "../helper/Icon";
 import {Link} from "gatsby";
 import styled from "styled-components";
 import {navigate} from 'gatsby';
@@ -59,7 +59,7 @@ const Navigation = ({location, settings, metadata}) => {
                     </div>
                 </Menu>
             </nav>
-            <DatenschutzAcceptance text={settings._rawCookietext} location={location}></DatenschutzAcceptance>
+            <DatenschutzAcceptance text={settings.cookie} location={location}></DatenschutzAcceptance>
         </div>
     )
 }

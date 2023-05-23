@@ -19,5 +19,4 @@ const Layout = ({children, location, settings, metadata}) => {
     )
 }
 
-
 export default Layout

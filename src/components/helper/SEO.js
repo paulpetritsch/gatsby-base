@@ -1,12 +1,11 @@
 import {useStaticQuery, graphql} from 'gatsby';
 import * as React from 'react';
 import {Helmet} from 'react-helmet';
-import {useLocation} from '@reach/router';
-import "../styles/global.scss";
+import "../../styles/global.scss";
 
 export default function SEO(props) {
 
-    const {site, featuredImage} = useStaticQuery(graphql`
+    const {site, featuredImage, allSanityStartseite} = useStaticQuery(graphql`
     query SeoMetaData {
       site {
         siteMetadata {
@@ -25,19 +24,35 @@ export default function SEO(props) {
           gatsbyImageData(layout: FIXED, width: 1200)
         }
       }
+        allSanityStartseite{
+            edges {
+                node {
+                    seo{
+                        seo_title{
+                            _type
+                            en
+                            de
+                        }
+                        seo_image {asset{gatsbyImageData}}
+                        seo_description{
+                            _type
+                            en
+                            de
+                        }
+                    }
+                }
+            }
+        }
     }
   `);
-    // determine the featured image from props
+    const seo = allSanityStartseite?.edges[0]?.node;
     const ogImage =
-        props.featuredImage?.asset?.gatsbyImageData ?? featuredImage?.childImageSharp?.gatsbyImageData;
-    // determine title and description
-    const title = props.title ?? site?.siteMetadata?.title;
-    const description = props.description ?? site?.siteMetadata?.description;
-    // Use the location hook to get current page URL
-    const location = useLocation();
-    // construct the meta array for passing into react helmet.
+        props.featuredImage?.asset?.gatsbyImageData ?? seo?.seo_image?.asset?.gatsbyImageData ??featuredImage?.childImageSharp?.gatsbyImageData;
+    const title = props.title ?? seo?.seo_title ?? site?.siteMetadata?.title;
+    const description = props.description ?? seo?.seo_description ?? site?.siteMetadata?.description;
+    const location = props.location;
+
     const metas = [
-        // basic seo
         {
             name: 'description',
             content: description,
@@ -91,13 +106,14 @@ export default function SEO(props) {
             content: ogImage.images.fallback.src,
         }*/
     ];
-    // If we have keywords, then add it
+
     if (props.keywords) {
         metas.push({
             name: 'keywords',
             content: props.keywords,
         });
     }
+
     return (
         <Helmet>
             <html lang="de"/>

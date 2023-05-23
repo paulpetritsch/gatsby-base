@@ -19,11 +19,6 @@ module.exports = {
             en: 'DE',
             de: 'EN'
         },
-        accept: {
-            _type: 'localeString',
-            en: 'Accept',
-            de: 'Einverstanden'
-        }
     },
     plugins: [{
         resolve: 'gatsby-source-sanity',
@@ -35,18 +30,6 @@ module.exports = {
             token: ''
         }
     }, "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-sass", "gatsby-plugin-sitemap",
-        {
-            resolve: `gatsby-plugin-google-gtag`,
-            options: {
-                trackingIds: [
-                    "",
-                ],
-                pluginConfig: {
-                    head: true,
-                    respectDNT: true,
-                },
-            },
-        },
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
@@ -94,6 +77,17 @@ module.exports = {
             options: {
                 endpoint: '',
                 timeout: 3500,
+            },
+        },{
+            resolve: `gatsby-plugin-google-gtag`,
+            options: {
+                trackingIds: [
+                    "",
+                ],
+                pluginConfig: {
+                    head: true,
+                    respectDNT: true,
+                },
             },
         },
  */

@@ -1,29 +1,8 @@
 import React, {useEffect} from "react";
-import MyPortableText from "./MyPortableText";
+import MyPortableText from "../helper/MyPortableText";
 import {graphql, useStaticQuery} from "gatsby";
 
-const DatenschutzAcceptance = ({location}) => {
-
-    const {text, accept} = useStaticQuery(graphql`
-    query Datenschutztext {
-      allSanitySettings{
-        edges {
-         node {
-            _rawCookietext
-         }
-        }
-      }
-      site {
-        siteMetadata{
-            accept{
-            _type
-            en
-            de
-            }
-        }
-      }
-    }
-  `);
+const DatenschutzAcceptance = ({location, cookie}) => {
 
     const closePopup = () => {
         let cookie = getCookie("cookies");
@@ -70,9 +49,9 @@ const DatenschutzAcceptance = ({location}) => {
     return (
         <div className={`datenschutzacceptance`}>
             <div className={`inner`}>
-                <MyPortableText value={text}></MyPortableText>
+                <MyPortableText value={cookie?._rawText}></MyPortableText>
                 <div className="btn__container">
-                    <div className={`btn btn-small btn-grotesk acceptance-btn`} onClick={() => {closePopup()}}>{accept}</div>
+                    <div className={`btn btn-small btn-grotesk acceptance-btn`} onClick={() => {closePopup()}}>{cookie?.button}</div>
                 </div>
             </div>
         </div>
