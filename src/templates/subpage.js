@@ -38,16 +38,6 @@ export const query = graphql`
                             de
                         }
                         _rawText
-                        options{
-                            _type
-                            en
-                            de
-                        }
-                        button{
-                            _type
-                            en
-                            de
-                        }
                     }
                 }
             }

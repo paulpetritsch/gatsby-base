@@ -64,6 +64,18 @@
     animation: fadeOut .3s;
 }
 
+@keyframes fade-up {
+    0% {
+        transform: translateY(20vh);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -126,4 +138,59 @@
         transform: translateX(-100%);
 
     }
+}
+
+
+
+
+.is-animated{
+    width: fit-content;
+    height: fit-content;
+    &.centered{
+        margin: 0 auto;
+    }
+    > * {
+        opacity: 0;
+    }
+    &.fullwidth{
+        width: 100%;
+    }
+}
+
+.reveal{
+    $default-delay: 0s; // Standard-Verzögerungswert, wenn kein data-delay Attribut definiert ist
+    @each $delay in (0s, 100ms, 200ms, 300ms, 400ms, 500ms, 600ms, 700ms, 800ms, 900ms, 1s, 1.1s, 1.2s, 1.3s, 1.4s, 1.5s, 1.6s, 1.7s, 1.8s, 1.9s, 2s, 3s) {
+        &[data-delay="#{$delay}"] {
+            --delay: #{$delay};
+        }
+    }
+    > *{
+        opacity: 0;
+        animation: fade-up 1s var(--delay, #{$default-delay}) forwards;
+    }
+}
+.reveal-text{
+    $default-delay: 0s; // Standard-Verzögerungswert, wenn kein data-delay Attribut definiert ist
+    @each $delay in (0s, 100ms, 200ms, 300ms, 400ms, 500ms, 600ms, 700ms, 800ms, 900ms, 1s, 1.1s, 1.2s, 1.3s, 1.4s, 1.5s, 1.6s, 1.7s, 1.8s, 1.9s, 2s) {
+        &[data-delay="#{$delay}"] {
+            --delay: #{$delay};
+        }
+    }
+    overflow: hidden;
+    > *{
+        display: block;
+        transform: translateY(120%);
+        animation: slideUp 1.5s var(--delay, #{$default-delay}) cubic-bezier(.5, 0, 0 , 1) forwards;
+    }
+}
+.reveal-alt{
+    $default-delay: 0s; // Standard-Verzögerungswert, wenn kein data-delay Attribut definiert ist
+    @each $delay in (0s, 100ms, 200ms, 300ms, 400ms, 500ms, 600ms, 700ms, 800ms, 900ms, 1s, 1.1s, 1.2s, 1.3s, 1.4s, 1.5s, 1.6s, 1.7s, 1.8s, 1.9s, 2s) {
+        &[data-delay="#{$delay}"] {
+            --delay: #{$delay};
+        }
+    }
+
+    opacity: 0;
+    animation: fade-up 1s var(--delay, #{$default-delay}) forwards;
 }

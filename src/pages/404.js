@@ -20,11 +20,6 @@ export const query = graphql`
                             en
                             de
                         }
-                        button{
-                            _type
-                            en
-                            de
-                        }
                         _rawText
                     }
                 }
@@ -47,9 +42,8 @@ const NotFoundPage = ({data, location}) => {
     const metadata = data.site.siteMetadata;
 
     return (<Layout location={location} settings={page} metadata={metadata}>
-            <SEO title={page.error.seo_title} location={location}></SEO>
-            <h1>{page.error.title}</h1>
-            <p>{page.error._rawText}</p>
+            <SEO title={"Error"} location={location}></SEO>
+            <h1>404 Error</h1>
         </Layout>)
 }
 

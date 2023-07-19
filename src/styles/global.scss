@@ -1,5 +1,10 @@
 @import "normalise";
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 @import "variables";
 @import "colors";
 @import "fonts";

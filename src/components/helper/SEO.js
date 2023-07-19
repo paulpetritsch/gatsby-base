@@ -1,7 +1,6 @@
 import {useStaticQuery, graphql} from 'gatsby';
 import * as React from 'react';
 import {Helmet} from 'react-helmet';
-import "../../styles/global.scss";
 
 export default function SEO(props) {
 

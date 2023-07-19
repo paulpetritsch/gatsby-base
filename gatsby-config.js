@@ -68,7 +68,18 @@ module.exports = {
                 path: './src/pages/',
             },
             __key: 'pages',
-        }
+        }, 'gatsby-plugin-postcss', 'gatsby-plugin-layout', {
+            resolve: `gatsby-plugin-gdpr-cookies`,
+            options: {
+                googleAnalytics: {
+                    trackingId: '', // leave empty if you want to disable the tracker
+                    cookieName: '-gdpr-google-analytics', // default
+                    anonymize: true,
+                    allowAdFeatures: false
+                },
+                environments: ['production']
+            },
+        },
     ]
 };
 /*
