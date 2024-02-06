@@ -5,45 +5,45 @@ import {Helmet} from 'react-helmet';
 export default function SEO(props) {
 
     const {site, featuredImage, allSanityStartseite} = useStaticQuery(graphql`
-    query SeoMetaData {
-      site {
-        siteMetadata {
-          title
-          description
-          siteUrl
-          og {
-            siteName
-          }
-        }
-      }
-      featuredImage: file(
-        absolutePath: { glob: "**/src/images/og-image.jpg" }
-      ) {
-        childImageSharp {
-          gatsbyImageData(layout: FIXED, width: 1200)
-        }
-      }
-        allSanityStartseite{
-            edges {
-                node {
-                    seo{
-                        seo_title{
-                            _type
-                            en
-                            de
-                        }
-                        seo_image {asset{gatsbyImageData}}
-                        seo_description{
-                            _type
-                            en
-                            de
+        query SeoMetaData {
+            site {
+                siteMetadata {
+                    title
+                    description
+                    siteUrl
+                    og {
+                        siteName
+                    }
+                }
+            }
+            featuredImage: file(
+                absolutePath: { glob: "**/src/images/og-image.jpg" }
+            ) {
+                childImageSharp {
+                    gatsbyImageData(layout: FIXED, width: 1200)
+                }
+            }
+            allSanityStartseite{
+                edges {
+                    node {
+                        seo{
+                            seo_title{
+                                en
+                                de
+                                _type
+                            }
+                            seo_image {asset{gatsbyImageData}}
+                            seo_description{
+                                en
+                                de
+                                _type
+                            }
                         }
                     }
                 }
             }
         }
-    }
-  `);
+    `);
     const seo = allSanityStartseite?.edges[0]?.node;
     const ogImage =
         props.featuredImage?.asset?.gatsbyImageData ?? seo?.seo_image?.asset?.gatsbyImageData ??featuredImage?.childImageSharp?.gatsbyImageData;
@@ -56,18 +56,18 @@ export default function SEO(props) {
             name: 'description',
             content: description,
         },
-        /*{
+        {
             name: 'og:image',
-            content: ogImage.images.fallback.src,
+            content: ogImage?.images?.fallback?.src,
         },
         {
             name: 'og:image:width',
-            content: `${ogImage.width}`,
+            content: `${ogImage?.width}`,
         },
         {
             name: 'og:image:height',
-            content: `${ogImage.height}`,
-        },*/
+            content: `${ogImage?.height}`,
+        },
         {
             name: 'og:type',
             content: 'website',
@@ -86,7 +86,7 @@ export default function SEO(props) {
         },
         {
             name: 'og:url',
-            content: `${site?.siteMetadata?.siteUrl}${location.pathname}`,
+            content: `https://bureaubuero.com/`,
         },
         {
             name: 'twitter:card',

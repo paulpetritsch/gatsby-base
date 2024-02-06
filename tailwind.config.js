@@ -6,7 +6,33 @@ module.exports = {
     "./src/components/**/*.{js,jsx,ts,tsx}",
     "./src/templates/**/*.{js,jsx,ts,tsx}",
   ],  theme: {
-    extend: {},
+    extend: {
+      screens:{
+        'wide': '1400px',
+        'desktop': '1200px',
+        'laptop': '1024px',
+        'tablet': '768px',
+        'phone': '414px'
+      },
+      colors: {
+        primary: '',
+        secondary: '',
+        white: '#ffffff',
+        black: '#000000',
+      },
+      maxWidth: {
+        page: '1800px',
+      },
+      spacing: {
+        base: '2rem',
+      },
+      padding: {
+        'base': '2rem',
+      },
+      margin: {
+        'base': '2rem',
+      }
+    },
   },
   plugins: [],
 }

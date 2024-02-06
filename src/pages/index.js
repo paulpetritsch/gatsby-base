@@ -4,8 +4,6 @@ import SEO from "../components/helper/SEO";
 import {graphql, Link} from "gatsby";
 import localize from "../components/helper/localize";
 import Text from "../components/helper/MyPortableText";
-import SmoothScroll from "../util/SmoothScroll";
-import {useEffect} from "react";
 
 
 export const query = graphql`
@@ -54,7 +52,8 @@ export const query = graphql`
                 lang{
                     _type
                     en
-                    de}
+                    de
+                }
             }
         }
     }
@@ -65,49 +64,6 @@ const IndexPage = ({data, location}) => {
     const page = data.allSanityStartseite.edges[0].node;
     const settings = data.allSanitySettings.edges[0].node;
     const metadata = data.site.siteMetadata;
-
-
-
-    useEffect(() => {
-
-        window.onresize = () => {
-            resizeBodyHeight();
-        };
-
-        window.onload = () => {
-            enableScroll();
-            resizeBodyHeight();
-        };
-
-        const isTouchDevice = 'ontouchstart' in document.documentElement;
-
-        disableScroll();
-        if (!isTouchDevice) smoothScroll();
-
-        function disableScroll() {
-            document.body.style.overflow = 'hidden';
-        }
-
-        function enableScroll() {
-            document.body.style.overflow = '';
-        }
-
-        function smoothScroll() {
-            document.querySelector('.smooth-viewport').classList.add('SmoothScroll');
-
-            if (typeof SmoothScroll !== 'undefined') {
-                new SmoothScroll({
-                    target: document.querySelector('.smooth-container'),
-                    scrollEase: 0.08,
-                    maxOffset: 500,
-                });
-            }
-        }
-
-        function resizeBodyHeight() {
-            document.body.style.height = document.querySelector('.smooth-viewport').scrollHeight + 'px';
-        }
-    });
 
     return (<Layout location={location} settings={settings} metadata={metadata}>
             <div className={"page"}>

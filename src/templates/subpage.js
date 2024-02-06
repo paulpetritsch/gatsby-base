@@ -47,7 +47,8 @@ export const query = graphql`
                 lang{
                     _type
                     en
-                    de}
+                    de
+                }
             }
         }
     }

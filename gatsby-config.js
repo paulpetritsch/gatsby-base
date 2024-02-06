@@ -1,10 +1,3 @@
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
-const customQuery = {
-    sm: '(max-width: 767px)',
-    ss: '(max-width: 413px)'
-};
 module.exports = {
     siteMetadata: {
         title: `BASE WEBSITE`,
@@ -35,13 +28,7 @@ module.exports = {
             options: {
                 icon: 'src/images/favicon.svg',
             },
-        },
-        {
-            resolve: "gatsby-plugin-breakpoints",
-            options: {
-                queries: customQuery,
-            }
-        }, 'gatsby-plugin-react-helmet', {
+        },'gatsby-plugin-react-helmet', {
             resolve: 'gatsby-plugin-sharp',
             options: {
                 defaults: {
@@ -68,18 +55,7 @@ module.exports = {
                 path: './src/pages/',
             },
             __key: 'pages',
-        }, 'gatsby-plugin-postcss', 'gatsby-plugin-layout', {
-            resolve: `gatsby-plugin-gdpr-cookies`,
-            options: {
-                googleAnalytics: {
-                    trackingId: '', // leave empty if you want to disable the tracker
-                    cookieName: '-gdpr-google-analytics', // default
-                    anonymize: true,
-                    allowAdFeatures: false
-                },
-                environments: ['production']
-            },
-        },
+        }, 'gatsby-plugin-postcss', 'gatsby-plugin-layout',
     ]
 };
 /*

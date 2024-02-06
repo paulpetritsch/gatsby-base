@@ -3,7 +3,6 @@ import Icon from "../helper/Icon";
 import {Link} from "gatsby";
 import styled from "styled-components";
 import {navigate} from 'gatsby';
-import DatenschutzAcceptance from "./DatenschutzAcceptance";
 
 const Menu = styled.div`
     display: ${({nav}) => (nav ? "flex" : "none")} !important;
@@ -37,8 +36,8 @@ const Navigation = ({location, settings, metadata}) => {
                 <div className={`left`}>
                     <div className={`lang__container`}>
                         {metadata.lang === 'EN' ?
-                            <Link to={location.pathname === "/" ? "/en/" : "/en" + location.pathname} className={"hover-moveup"}>{metadata.lang}</Link> :
-                            <Link to={location.pathname === "/en/" ? "/" : location.pathname.replace('/en', '')} className={"hover-moveup"}>{metadata.lang}</Link>}
+                            <Link to={location.pathname === "/" ? "/en/" : "/en" + location.pathname} className={"hover-moveup"}>{metadata.lang.de}</Link> :
+                            <Link to={location.pathname === "/en/" ? "/" : location.pathname.replace('/en', '')} className={"hover-moveup"}>{metadata.lang.en}</Link>}
                     </div>
                 </div>
                 <div className={`center`}>
@@ -59,7 +58,6 @@ const Navigation = ({location, settings, metadata}) => {
                     </div>
                 </Menu>
             </nav>
-            <DatenschutzAcceptance text={settings.cookie} location={location}></DatenschutzAcceptance>
         </div>
     )
 }
